@@ -74,6 +74,7 @@ public:
 
 	void setTexture(const char* filepath);
 	void setColor(float, float, float);
+	void updateBounds();
 	void setBounds(float, float, float);
 	bounds getBounds();
     glm::vec3 getPosition();

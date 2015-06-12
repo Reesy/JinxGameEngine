@@ -24,6 +24,8 @@ void GameObject::setPosition(float x, float y, float z){
 
 void GameObject::setPosition(glm::vec3 position){
     this->Position = position;
+
+	updateBounds();
 }
 
 
@@ -37,19 +39,27 @@ void GameObject::setSize(float x, float y, float z){
     this->Scale.x = x;
     this->Scale.y = y;
     this->Scale.z = z;
+	
 
-//	setBounds(x, y, z);
+	updateBounds();
+	
+
+}
+//this overload is to manually set the size of the bounds.
+void GameObject::setBounds(float x, float y, float z){
+	
+
 
 }
 
-void GameObject::setBounds(float x, float y, float z){
-	
-	this->thisBounds.left = -x / 2;
-	this->thisBounds.right = x / 2;
-	this->thisBounds.up = y - (y / 2);
-	this->thisBounds.down = y - (y / 2);
-	this->thisBounds.front = z - (z / 2);
-	this->thisBounds.back = z + (z / 2);
+void GameObject::updateBounds(){
+	this->thisBounds.up = this->Position.y + (this->Scale.y / 2) ;
+	this->thisBounds.down = this->Position.y - (this->Scale.y / 2);
+	this->thisBounds.front = this->Position.z + (this->Scale.z / 2);
+	this->thisBounds.back = this->Position.z - (this->Scale.z / 2);
+	this->thisBounds.left = this->Position.x - (this->Scale.x / 2);
+	this->thisBounds.right = this->Position.x + (this->Scale.x / 2);
+
 
 }
 bounds GameObject::getBounds(){
@@ -59,41 +69,55 @@ bounds GameObject::getBounds(){
 }
 void GameObject::setX(float x){
     this->Position.x = x;
+
+	updateBounds();
 }
 
 void GameObject::setY(float y){
     this->Position.y = y;
+
+
+	updateBounds();
+
 }
 void GameObject::setZ(float z){
     this->Position.z = z;
-
+	
+	updateBounds();
 }
 
 void GameObject::translateX(float x){
 	this->Position.x += x;
-	this->thisBounds.left += x;
-	this->thisBounds.right += x; 
+
+	updateBounds();
+
 }
 void GameObject::translateY(float y){
 	this->Position.y += y;
-	this->thisBounds.up += y;
-	this->thisBounds.down += y;
+
+	updateBounds();
 
 }
 void GameObject::translateZ(float z){
 	this->Position.z += z;
-	this->thisBounds.front += z;
-	this->thisBounds.back += z;
+
+	updateBounds();
+
 }
 void GameObject::translate(float x, float y, float z){
 	this->Position.x += x;
 	this->Position.y += y;
 	this->Position.z += z;
-	setBounds(x, y, z);
+
+	updateBounds();
+
 }
 
 glm::vec3 GameObject::getPosition(){
     return this->Position;
+
+
+
 }
 
 void GameObject::setVelocity(float vel){

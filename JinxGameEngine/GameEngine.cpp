@@ -86,7 +86,7 @@ void GameEngine::GameMain(){
             glfwPollEvents();
 			update();
 			glfwGetCursorPos(window, &xpos, &ypos); 
-           // render();
+            render();
         }
         glfwTerminate();
 }
@@ -102,7 +102,8 @@ void GameEngine::key_callback(GLFWwindow* window, int key, int scancode, int act
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS){
 		std::cout << "***************************************************************************************" << std::endl;
 		std::cout << "Resume box position: " << resumeBox.getPosition().x << " " << resumeBox.getPosition().y << " " << resumeBox.getPosition().z << std::endl;
-		std::cout << "Resume Box Left:"  << resumeBox.getBounds().left <<  "   " << "Exit Box Left:" << exitBox.getBounds().left  << std::endl;
+		std::cout << "Resume box size    : " << resumeBox.getSize().x << " " << resumeBox.getSize().y << " " << resumeBox.getSize().z << std::endl;
+	    std::cout << "Resume Box Left:"  << resumeBox.getBounds().left <<  "   " << "Exit Box Left:" << exitBox.getBounds().left  << std::endl;
 		std::cout << "Resume Box RIGHT:" << resumeBox.getBounds().right << "   " << "Exit Box Right:" << exitBox.getBounds().right << std::endl;
 		std::cout << "Resume Box UP   :" << resumeBox.getBounds().up << "   " << "   Exit Box up:" << exitBox.getBounds().up << std::endl;
 		std::cout << "Resume Box DOWN :" << resumeBox.getBounds().down << "   " <<  "Exit Box down:" << exitBox.getBounds().down << std::endl;
