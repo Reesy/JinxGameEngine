@@ -177,7 +177,8 @@ void GameEngine::debugMode(){
 //Checks if part of A is inside the bounds of B
 bool GameEngine::checkCollision(GameObject A, GameObject B){
 	if (A.getBounds().right > B.getBounds().left && A.getBounds().left < B.getBounds().right && 
-		 A.getBounds().down < B.getBounds().up && A.getBounds().up > B.getBounds().down ){
+		A.getBounds().up > B.getBounds().down && A.getBounds().down < B.getBounds().up &&
+		A.getBounds().front > B.getBounds().back && A.getBounds().back < B.getBounds().front){
 		std::cout << "ding";
 	}
 	return true;
