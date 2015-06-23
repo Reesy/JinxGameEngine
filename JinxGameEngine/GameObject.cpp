@@ -20,6 +20,8 @@ void GameObject::setPosition(float x, float y, float z){
     this->Position.x = x;
     this->Position.y = y;
     this->Position.z = z;
+
+	updateBounds(); 
 }
 
 void GameObject::setPosition(glm::vec3 position){

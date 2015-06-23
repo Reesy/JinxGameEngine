@@ -50,17 +50,20 @@ class GameEngine{
 public:
 	bool paused;
 
-    GameEngine();
+    GameEngine(GLFWwindow * window);
     ~GameEngine();
     
-    void GameMain();
+	void GameMain();
     void input();
-    static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+  //  static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+	//static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
     
     void render();
     void update();
     void debugMode();
 	void menuMode();
+	void handleMouseEvent(int, int);
+	void handleKeyEvent(int, int);
 	bool checkCollision(GameObject, GameObject); //Checks if Object A is within the bounds of Object B
 	
 };
