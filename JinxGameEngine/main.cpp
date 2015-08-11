@@ -42,7 +42,7 @@ int main(int argc, const char * argv[]) {
 	glewExperimental = GL_TRUE;
 	glewInit();
 	glEnable(GL_DEPTH_TEST);
-	glfwGetFramebufferSize(window, &WIDTH, &HEIGHT); // Mac specific, used for fixing NDC
+	glfwGetFramebufferSize(window, &WIDTH, &HEIGHT); // Mac specific used for fixing NDC
 	glViewport(0, 0, WIDTH, HEIGHT);
 
     GameEngine mainEngine(window);
