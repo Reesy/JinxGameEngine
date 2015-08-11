@@ -32,6 +32,7 @@ struct bounds {
 	float front; //faces the camera, only used in 2D 
 
 };
+
 class GameObject{
 
     

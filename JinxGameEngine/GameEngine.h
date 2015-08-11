@@ -25,12 +25,10 @@
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
-struct State{
+struct GameState{
 	bool paused;
 	bool menu;
 	bool debugMode;
-
-
 };
 
 class GameEngine{
@@ -46,14 +44,13 @@ class GameEngine{
 
     double xpos, ypos;
 	
-	
 public:
 	bool paused;
 
     GameEngine(GLFWwindow * window);
     ~GameEngine();
     
-	void GameMain();
+	void GameLoop();
     void input();
   //  static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 	//static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
@@ -65,8 +62,6 @@ public:
 	void handleMouseEvent(int, int);
 	void handleKeyEvent(int, int);
 	bool checkCollision(GameObject, GameObject); //Checks if Object A is within the bounds of Object B
-	
 };
-
 
 #endif /* defined(__VRBreakout__GameEngine__) */

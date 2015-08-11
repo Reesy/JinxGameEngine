@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 
-	window = glfwCreateWindow(WIDTH, HEIGHT, "VR Breakout!", nullptr, nullptr);
+	window = glfwCreateWindow(WIDTH, HEIGHT, "Jinx Engine", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1);
 	glfwSetKeyCallback(window, key_callback);
@@ -43,16 +43,13 @@ int main(int argc, const char * argv[]) {
 	glewInit();
 	glEnable(GL_DEPTH_TEST);
 	glfwGetFramebufferSize(window, &WIDTH, &HEIGHT); // Mac specific, used for fixing NDC
-
-
-
 	glViewport(0, 0, WIDTH, HEIGHT);
 
     GameEngine mainEngine(window);
 
 	glfwSetWindowUserPointer(window, &mainEngine);
 
-	mainEngine.GameMain();
+	mainEngine.GameLoop();
 }
 
 

@@ -15,7 +15,7 @@ int LeftButton;
 bool beingClicked;
 
 CubeObject cube;
-State mainState;
+GameState mainState;
 SquareObject cursor;
 SquareObject testBox;
 SquareObject resumeBox;
@@ -29,8 +29,8 @@ GameEngine::GameEngine(GLFWwindow * currentWindow){
 
 GameEngine::~GameEngine(){
 }
-void GameEngine::GameMain(){
-
+void GameEngine::GameLoop(){
+		//Initialising code
 		Shader mainShader("resources/VertexShader.vert", "resources/FragmentShader.frag");
 		Shader menuShader("resources/VertexShader2D.vert", "resources/FragmentShader2D.frag");
 
@@ -42,6 +42,7 @@ void GameEngine::GameMain(){
 		testBox.init(mainShader);
 		testBox.setColor(0.0f, 1.0f, 1.0f);
 		testBox.setSize(1.0f, 1.0f, 1.0f);
+		testBox.setTexture("H:\workspace\JinxGameEngine\JinxGameEngine\resources\awesomeface.png");
 
 		resumeBox.init(menuShader);
 		resumeBox.setColor(0.0f, 1.0f, 1.0f);
@@ -69,17 +70,18 @@ void GameEngine::GameMain(){
 		orthProjection = glm::ortho(0.0f, static_cast<GLfloat>(1600), 0.0f, static_cast<GLfloat>(900));
 
 		orthView = glm::translate(orthView, glm::vec3(0, 0, -1)); //this is blank to reuse same mainShader 
+		
+		
+
+
 		// main loop
         while (!glfwWindowShouldClose(window)){
             glfwPollEvents();
 			update();
-			glfwGetCursorPos(window, &xpos, &ypos); 
+			//glfwGetCursorPos(window, &xpos, &ypos); 
             render();
         }
        glfwTerminate();
-}
-void GameEngine::input(){
-	std::cout << "dingding" << std::endl;
 }
 
 void GameEngine::handleMouseEvent(int button, int action){
@@ -143,8 +145,8 @@ void GameEngine::render(){
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//render code:
+	
 	testBox.draw(this->view, this->projection);
-//	testBox.setTexture("resources/awesomeface.png");
 	cube.draw(this->view, this->projection);
 	
     if (mainState.menu == true){ menuMode(); }
@@ -160,9 +162,10 @@ void GameEngine::menuMode(){
 	textRender.RenderText("Exit    ", 700.0f, 400.0f, 1.0f, glm::vec3(0.0, 0.0f, 1.0f));
 }
 void GameEngine::update(){
-	
+	glfwGetCursorPos(window, &xpos, &ypos);
 	LeftButton = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
 	cursor.setPosition(xpos, (-ypos + 900), 1.0f);
+	
 }
 void GameEngine::debugMode(){
 	
@@ -190,3 +193,5 @@ bool GameEngine::checkCollision(GameObject A, GameObject B){
 	}
 	return false;
 }
+
+
