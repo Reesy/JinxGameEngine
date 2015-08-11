@@ -11,3 +11,5 @@ Versioning system:
 Any respository changes such as editing the readme will not be included in the versioning system.
 
 Currently the version is alpha, when it's ready for at least some minimal game creation the version will be 1.0.0+
+
+Changing to a gitflow structure to seperate out features into seperate branches. 
