@@ -6,20 +6,10 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-//#include "Shader.h"
+#include "Shader.h"
 #include "PhysicsComponent.h"
 #include "AIComponent.h"
 #include "GraphicsComponent.h"
-
-//This struct will hold view and projection state of the scene, Model will be defined by the Component
-//may need to be pushed up to main
-struct MVPState {
-
-	glm::mat4 View;
-	glm::mat4 Projection;
-
-
-};
 
 
 class GameObjects{
