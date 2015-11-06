@@ -1,10 +1,16 @@
-#pragma once
-#include "GameObjects.h"
+//#ifndef __AICOMPONENT__
+//#define __AICOMPONENT__
+//#include "GameObjects.h"
+
+class GameObjects;
 
 class AIComponent
 {
 public:
-	AIComponent();
-	virtual void update(GameObjects &gameObject);
+	
+	virtual void update(GameObjects& gameObjects);
+	
 };
+
+//#endif
 
