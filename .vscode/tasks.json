@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Compile",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "src/main.cpp",
+                "src/GameEngine.cpp",
+                "src/GameObject.cpp",
+                "src/TextRender.cpp",
+                "src/CubeObject.cpp",
+                "src/SquareObject.cpp",
+                "src/TextureLoader.cpp",
+                "-o",
+                "dist/JINXENGINE.out",
+                "-lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo -lglew -lsoil -lfreetype",
+                "-I /usr/local/include/freetype2",
+                "-std=c++11 -Wno-narrowing"
+             
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

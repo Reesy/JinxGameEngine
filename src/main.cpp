@@ -11,19 +11,19 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <SOIL\SOIL.h>
+#include <SOIL/SOIL.h>
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
 
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
-void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 int main(int argc, const char * argv[]) {
 	GLFWwindow* window;
-	int WIDTH = 1600;
-	int HEIGHT = 900;
+	int WIDTH = 900;
+	int HEIGHT =600;
 	
 	
 	glfwInit();

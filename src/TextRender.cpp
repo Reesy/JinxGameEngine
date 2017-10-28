@@ -28,7 +28,7 @@ void TextRender::init(int width, int height){
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// Compile and setup the shader
-	Shader Shader("resources/TextVertexShader.vert", "resources/TextFragmentShader.frag");
+	Shader Shader("../resources/TextVertexShader.vert", "../resources/TextFragmentShader.frag");
 	this->textShader = Shader;
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(width), 0.0f, static_cast<GLfloat>(height));
 	textShader.Use();
@@ -42,7 +42,7 @@ void TextRender::init(int width, int height){
 
 	// Load font as face
 	FT_Face face;
-	if (FT_New_Face(ft, "resources/arial.ttf", 0, &face))
+	if (FT_New_Face(ft, "../resources/arial.ttf", 0, &face))
 		std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
 
 	// Set size to load glyphs as

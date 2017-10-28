@@ -15,7 +15,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <SOIL\SOIL.h>
+#include <SOIL/SOIL.h>
 #include "Shader.h"
 #include "GameObject.h"
 #include "SquareObject.h"

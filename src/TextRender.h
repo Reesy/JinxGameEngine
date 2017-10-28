@@ -1,8 +1,8 @@
 #include <map>
-#include <glm\glm.hpp>
-#include <glm\gtc\type_ptr.hpp>
-#include <glm\gtc\matrix_transform.hpp>
-#include <ft2build.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <freetype2/ft2build.h>
 #include "Shader.h"
 #include FT_FREETYPE_H
 

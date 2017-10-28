@@ -31,8 +31,8 @@ GameEngine::~GameEngine(){
 }
 void GameEngine::GameLoop(){
 		//Initialising code
-		Shader mainShader("resources/VertexShader.vert", "resources/FragmentShader.frag");
-		Shader menuShader("resources/VertexShader2D.vert", "resources/FragmentShader2D.frag");
+		Shader mainShader("../resources/VertexShader.vert", "../resources/FragmentShader.frag");
+		Shader menuShader("../resources/VertexShader2D.vert", "../resources/FragmentShader2D.frag");
 
 		cube.init(mainShader);
 		cube.setColor(1.0f, 0.0f, 1.0f);
@@ -42,7 +42,7 @@ void GameEngine::GameLoop(){
 		testBox.init(mainShader);
 		testBox.setColor(0.0f, 1.0f, 1.0f);
 		testBox.setSize(1.0f, 1.0f, 1.0f);
-		testBox.setTexture("H:\workspace\JinxGameEngine\JinxGameEngine\resources\awesomeface.png");
+		testBox.setTexture("../resources/awesomeface.png");
 
 		resumeBox.init(menuShader);
 		resumeBox.setColor(0.0f, 1.0f, 1.0f);
